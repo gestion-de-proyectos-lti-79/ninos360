@@ -12,7 +12,7 @@ def get_secret(secret_name, secrets=secret):
         return secrets[secret_name]
     except:
         msg = "la variable %s no existe" % secret_name
-        raise ImproperlyConfigured(msg)
+        raise Exception(msg)
 
 
 
@@ -31,9 +31,6 @@ DJANGO_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-
-
-    
 )
 
 
@@ -43,8 +40,6 @@ LOCAL_APPS = (
     # 'applications.padrino',
     'applications.video',
     'applications.users',
-    
-    
 )
 
 THIRD_PARTY_APPS = (
@@ -123,7 +118,6 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_TZ = True
 
 
 
