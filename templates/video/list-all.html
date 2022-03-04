@@ -1,0 +1,20 @@
+
+{% extends "base.html" %}
+
+{% load  static %}
+
+{% block content %}
+<h1>Escuela para Padres</h1>
+
+<div class="grid-container">
+    <div class="grid-x">
+
+        {% for video in videos %}
+            <h2 class="cell large-6">{{video.title}}</h2>
+            <a href="{% url 'video_app:video-detail' video.id %}""><img src="{{ video.cover_page.url }}" style="height: 270px;"></a>
+            
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}

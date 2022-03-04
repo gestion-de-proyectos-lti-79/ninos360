@@ -1,0 +1,76 @@
+<header>
+    <div class="grid-x grid-margin-x header">
+        <div class="cell small-12 medium-4 large-3">
+            <a href="{% url 'home_app:inicio' %}" class="hb">
+                Niños 360
+            </a>
+        </div>
+
+
+        <div class="cell small-12 medium-4">
+        </div>
+
+        <div class="cell small-12 large-5 ">
+            <ul class="menu" style="justify-content: flex-end;">
+               
+
+                <li>
+                    {% if user.is_anonymous %}
+                        <a style="margin-right: 20px;" href="{% url 'users_app:login-padres' %}" class="success button">Escuela Padres</a>
+                    {% else %}
+                    
+                    {% endif %} 
+
+                    {% if user.get_ocupation_display == 'Padre' %}
+                    
+                    <a class="warning button" href="{% url 'users_app:perfil-padres' %}">Perfil Padre</a>  
+                    {% endif %} 
+
+                </li>
+
+
+                <li>
+                    {% if user.is_anonymous %}
+                        <a style="margin-right: 20px;" href="{% url 'users_app:user-login-padrino' %}" class="success button">Padrino</a>
+                    {% else %}
+                    
+                    {% endif %} 
+
+                    {% if user.get_ocupation_display == 'Padrino' %}
+                    
+                    <a class="warning button" href="{% url 'users_app:user-perfil-padrino' %}">Perfil Padrino</a>  
+                    {% endif %} 
+
+                </li>
+
+                <li>
+                    {% if user.is_anonymous %}
+                        <a href="{% url 'users_app:user-login-padrino' %}" class="success button">Niños</a>
+                    {% else %}
+                    
+                    {% endif %} 
+
+                    {% comment %} {% if user.get_ocupation_display == 'Padrino' %}
+                    
+                    <a class="warning button" href="{% url 'users_app:user-perfil-padrino' %}">Perfil Padrino</a>  
+                    {% endif %}   {% endcomment %}
+
+                </li>
+
+               
+
+        
+
+
+                {% comment %} salir {% endcomment %}
+                <li>
+                    {% if not user.is_anonymous %}
+                        <a class="clear button alert" href="{% url 'users_app:user-logout' %}">Salir</a>
+                    {% endif %}     
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% load  static %}
+
+{% block content %}
+<h1>Escuela para Padres</h1>
+
+<div class="grid-container">
+    <div class="grid-x">
+        <h2 class="cell large-6">{{video.title}}</h2>
+        <video  class="cell large-6" width="380" height="240" autoplay muted controls  controlslist="nodownload" >
+        <source src="{{ MEDIA_URL }}{{ video.media.url }}"  type="video/mp4">
+            Your browser does not support the video tag
+        </video>
+    </div>
+</div>
+
+{% endblock content %}

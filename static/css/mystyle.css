@@ -1,0 +1,35 @@
+.header{
+    display: flex;
+    align-items: center;
+    background: #dfe6e9;
+    padding: 0.5em 1em 0.5em 1em;
+}
+
+.hb{
+    font-size: 20px;
+    color: black;
+}
+
+
+/* img {
+    width: 50%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+} */
+  
+
+h1,a{
+    color: black;
+}
+
+
+
+.noAccess{
+    color: red;
+    
+}
+
+
