@@ -1,76 +1,61 @@
 <header>
-    <div class="grid-x grid-margin-x header">
-        <div class="cell small-12 medium-4 large-3">
-            <a href="{% url 'home_app:inicio' %}" class="hb">
-                Niños 360
-            </a>
-        </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-
-        <div class="cell small-12 medium-4">
-        </div>
-
-        <div class="cell small-12 large-5 ">
-            <ul class="menu" style="justify-content: flex-end;">
-               
-
-                <li>
-                    {% if user.is_anonymous %}
-                        <a style="margin-right: 20px;" href="{% url 'users_app:login-padres' %}" class="success button">Escuela Padres</a>
-                    {% else %}
-                    
-                    {% endif %} 
-
-                    {% if user.get_ocupation_display == 'Padre' %}
-                    
-                    <a class="warning button" href="{% url 'users_app:perfil-padres' %}">Perfil Padre</a>  
-                    {% endif %} 
-
-                </li>
-
-
-                <li>
-                    {% if user.is_anonymous %}
-                        <a style="margin-right: 20px;" href="{% url 'users_app:user-login-padrino' %}" class="success button">Padrino</a>
-                    {% else %}
-                    
-                    {% endif %} 
-
-                    {% if user.get_ocupation_display == 'Padrino' %}
-                    
-                    <a class="warning button" href="{% url 'users_app:user-perfil-padrino' %}">Perfil Padrino</a>  
-                    {% endif %} 
-
-                </li>
-
-                <li>
-                    {% if user.is_anonymous %}
-                        <a href="{% url 'users_app:user-login-padrino' %}" class="success button">Niños</a>
-                    {% else %}
-                    
-                    {% endif %} 
-
-                    {% comment %} {% if user.get_ocupation_display == 'Padrino' %}
-                    
-                    <a class="warning button" href="{% url 'users_app:user-perfil-padrino' %}">Perfil Padrino</a>  
-                    {% endif %}   {% endcomment %}
-
-                </li>
-
-               
-
+        <a href="{% url 'home_app:inicio' %}" class="navbar-brand">
+            Niños 360
+        </a>
         
-
-
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+                {% if user.is_anonymous %}
+                    <a href="{% url 'users_app:login-padres' %}" class="nav-link">Escuela Padres</a>
+                {% else %}
+                
+                {% endif %} 
+    
+                {% if user.get_ocupation_display == 'Padre' %}
+                
+                    <a  class="nav-link" href="{% url 'users_app:perfil-padres' %}">Perfil Padre</a>  
+                {% endif %} 
+    
+            </li>
+            <li class="nav-item active">
+                {% if user.is_anonymous %}
+                    <a href="{% url 'users_app:user-login-padrino' %}" class="nav-link">Padrino</a>
+                {% else %}
+            
+                {% endif %} 
+    
+                {% if user.get_ocupation_display == 'Padrino' %}
+                    <a class="nav-link"  href="{% url 'users_app:user-perfil-padrino' %}">Perfil Padrino</a>  
+                {% endif %} 
+            </li>
+            <li class="nav-item activate">
+                {% if user.is_anonymous %}
+                    <a href="{% url 'users_app:user-login-padrino' %}" class="nav-link">Niños</a>
+                {% else %}
+                
+                {% endif %} 
+    
+                {% comment %} {% if user.get_ocupation_display == 'Padrino' %}
+                
+                <a class="nav-link" href="{% url 'users_app:user-perfil-padrino' %}">Perfil Padrino</a>  
+                {% endif %}   {% endcomment %}
+            </li>
+            <li class="nav-item activate">
                 {% comment %} salir {% endcomment %}
-                <li>
-                    {% if not user.is_anonymous %}
-                        <a class="clear button alert" href="{% url 'users_app:user-logout' %}">Salir</a>
-                    {% endif %}     
-                </li>
-                
-                
-            </ul>
+                    
+                {% if not user.is_anonymous %}
+                    <a class="nav-link" href="{% url 'users_app:user-logout' %}">Salir</a>
+                {% endif %}     
+                    
+            </li>
+          </ul>
         </div>
-    </div>
+    </nav>
 </header>
+

@@ -44,8 +44,12 @@ LOCAL_APPS = (
 
 THIRD_PARTY_APPS = (
     'smart_selects',
-    'phonenumber_field'
+    'phonenumber_field',
+    "bootstrap4",
+    "crispy_forms",
 )
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
