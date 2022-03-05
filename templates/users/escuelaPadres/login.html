@@ -10,19 +10,27 @@
 {% include 'includes/header.html' %}
 
 <div class="container">
-
-    <form class="form-group" method="post">
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <h2>Acceso Escuela para Padres</h2>
+            <form class="form-group" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
         
-        {% csrf_token %}
-        {{form|crispy}}
+                
+                {{form|crispy}}
+                
+                <div class="btn-group">
+                    <button type="submit" class="btn btn-success mt-2">Log In</button>
+                </div>    
         
-        <div class="btn-group">
-            <button type="submit" class="btn btn-success mt-2">Log In</button>
-        </div>    
+        
+            </form>
+            
+            <a class="cell hollow button alert" href="{% url 'users_app:register-padres'%}">Registrar</a>
+        </div>
 
-    </form>
+    </div>
     
-    <a class="cell hollow button alert" href="{% url 'users_app:register-padres'%}">Registrar</a>
     
 </div>
 

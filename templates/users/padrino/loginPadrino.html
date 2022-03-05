@@ -1,37 +1,36 @@
 <!-- head para PC -->
 {% extends "base.html" %}
 {% load  static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
 {% include 'includes/header.html' %}
 
-<div class="grid-container">
-    <div class="grid-x grid-margin-x align-center">
-        <div class="cell medium-8 large-5" style="margin-top: 2em;">
-            <div class="card" style="width: 100%;">
-                <div class="card-divider">
-                  <h4>Acceso Padrino</h4>
-                </div>
-                <div class="card-section">
-                    <form class="grid-x grid-margin-x" method="POST" enctype="multipart/form-data">{% csrf_token %}
-                        <div class="cell medium-12">
-                            <label>Email:
-                                {{form.email}}
-                            </label>
-                        </div>
-                        <div class="cell medium-12">
-                            <label>Contraseña:
-                                {{form.password}}
-                            </label>
-                        </div>
-                        <button type="submit" class="cell hollow button primary">Acceder</button>
-                        <a class="cell hollow button alert" href="{% url 'users_app:user-padrino-register'%}">Registrar</a>
-                    </form>
-                </div>
-            </div>
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-md-12">
+            <h2>Acceso Padrino</h2>
+            <form class="form-group" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+            
+                
+                {{form|crispy}}
+                
+                <div class="btn-group">
+                    <button type="submit" class="btn btn-success mt-2">Log In</button>
+                </div>    
+            
+            
+            </form>
+            <a class="cell hollow button alert" href="{% url 'users_app:user-padrino-register'%}">Registrar</a>
+            
         </div>
     </div>
+    
+
 </div>
+
+
 
 {% endblock content %}
