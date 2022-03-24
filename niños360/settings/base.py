@@ -2,7 +2,12 @@ from pathlib import Path
 import json
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 from unipath import Path
+import pymysql
+
+pymysql.install_as_MySQLdb()
+
 BASE_DIR = Path(__file__).ancestor(3)
+
 
 with open("secret.json") as f:
     secret = json.loads(f.read())
